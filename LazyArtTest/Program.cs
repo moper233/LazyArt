@@ -10,17 +10,18 @@ Console.WriteLine("Hello, World!");
 
 
 
-var context = new GenericDbDbContextFactory<A_SHOP_TEST>().CreateDbContext(null);
-var repository = new GenericRepository<A_SHOP_TEST>(context);
+var context = new GenericDbDbContextFactory<ShopTest>().CreateDbContext(null);
+var repository = new GenericRepository<ShopTest>(context);
 //var service = new GenericService<MyEntity>(repository);
 
 // 添加实体
-repository.Create(new A_SHOP_TEST { ID = Guid.NewGuid(), NAME = "Entity 1" });
-repository.Create(new A_SHOP_TEST { ID = Guid.NewGuid(), NAME = "Entity 2" });
+repository.Create(new ShopTest { Id = Guid.NewGuid(), Name = "Entity 1" });
+repository.Create(new ShopTest { Id = Guid.NewGuid(), Name = "Entity 2" });
 
 // 查询实体
-var entities = repository.GetAll();
+var entities = repository.Finds();
 foreach (var entity in entities)
 {
-    System.Console.WriteLine($"Id: {entity.ID}, Name: {entity.NAME}");
+    System.Console.WriteLine($"Id: {entity.Id}, Name: {entity.Name}");
 }
+

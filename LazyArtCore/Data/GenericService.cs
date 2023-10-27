@@ -17,12 +17,12 @@ namespace LazyArtCore.Data
 
         public IEnumerable<T> GetAll()
         {
-            return _repository.GetAll();
+            return _repository.Finds();
         }
 
         public T GetById(int id)
         {
-            return _repository.GetById(id);
+            return _repository.Find(id);
         }
 
         public void Create(T entity)

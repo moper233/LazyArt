@@ -10,16 +10,20 @@ using System.Threading.Tasks;
 
 namespace LazyArtTest
 {
-    [Table("A_SHOP_TEST")]
-    public class A_SHOP_TEST
+    [Table("ShopTest")]
+    public class ShopTest
     {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //[Column(TypeName = "RAW(16)")]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
+
         [Required]
-        public required string NAME { get; set; }
+        [StringLength(200)]
+        public required string Name { get; set; }
     }
+
+
+
 
 
 }

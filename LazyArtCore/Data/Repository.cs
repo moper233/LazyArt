@@ -17,12 +17,12 @@ namespace LazyArtCore.Data
             _dbSet = context.Set<T>();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> Finds()
         {
             return _dbSet.ToList();
         }
 
-        public T GetById(int id)
+        public T Find(int id)
         {
             return _dbSet.Find(id);
         }
@@ -48,8 +48,8 @@ namespace LazyArtCore.Data
 
     public interface IGenericRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
+        IEnumerable<T> Finds();
+        T Find(int id);
         void Create(T entity);
         void Update(T entity);
         void Delete(T entity);
